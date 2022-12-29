@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+    <style> .h{
+color:#34AF6D;
+}</style>
+  <title> Charts </title>
+  <link  rel="stylesheet" href="{% static 'css/cs.css' %}" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="dash/" class="logo">
+          <img src="{% static 'img/icon.jpg'%}">
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+        <li><a href="/dash" aria-controls="home" role="tab" data-toggle="tab">
+          <i class="fas fa-menorah"></i>
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+        <li><a href="/data" aria-controls="home" role="tab" data-toggle="tab">
+          <i class="fas fa-table"></i>
+          <span >Tables</span>
+        </a></li>
+        <li><a href="/chart">
+          <i class="fas fa-chart-line"></i>
+          <span class="nav-item">Charts</span>
+        </a></li>
+        <a href="#" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+
+<section class="main">
+    <div class="main-top">
+        <h1 class="h"> Temperature Charts</h1>
+        <i class="fas fa-user-cog"></i>
+    </div>
+    <section class="attendance">
+        <div class="charts">
+        <div class="chart">
+            <div><canvas id="lineChart"></canvas></div>
+        </div>
+
+        </div>
+    </section>
+</section>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+
+<script >
+ const dates = [{% for i in tab %} '{{i.dt}}', {% endfor %}];
+ const datas = [{% for i in tab %} '{{i.temp}}', {% endfor %}];
+ var ctx = document.getElementById('lineChart').getContext('2d');
+ var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: dates,
+      datasets: [{
+        label: 'temperature',
+        data: datas,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  })
+
+</script></body></html>

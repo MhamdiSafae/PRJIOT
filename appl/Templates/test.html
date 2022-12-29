@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+    <style> .h{
+color:#34AF6D;
+}</style>
+  <title>Tables</title>
+  <link  rel="stylesheet" href="{% static 'css/cs.css' %}" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="dash/" class="logo">
+          <img src="{% static 'img/icon.jpg'%}">
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+        <li><a href="/dash" aria-controls="home" role="tab" data-toggle="tab">
+          <i class="fas fa-menorah"></i>
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+        <li><a href="/data" aria-controls="home" role="tab" data-toggle="tab">
+          <i class="fas fa-table"></i>
+          <span >Tables</span>
+        </a></li>
+        <li><a href="/chart">
+          <i class="fas fa-chart-line"></i>
+          <span class="nav-item">Charts</span>
+        </a></li>
+        <a href="#" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+
+<section class="main">
+    <div class="main-top">
+        <h1 class="h"> Temperature Tables</h1>
+        <i class="fas fa-user-cog"></i>
+    </div>
+    <section class="attendance">
+        <div class="attendance-list">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Température</th>
+                    <th>Date:Heure</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for i in tab %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.temp}}</td>
+                    <td>{{i.dt}}</td>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div></section></section></section>
+
+  </div>
+
+</body>
+</html>
