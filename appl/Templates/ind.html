@@ -6,7 +6,19 @@
   <meta charset="UTF-8" />
   <style>.h{
 color:#34AF6D;
-}</style>
+}
+users .per span{
+  padding: 5px;
+  border-radius: 10px;
+  background: #34AF6D;
+  font-size: 'x-large';
+  font-weight: bold;
+  font-family:'revert';
+  font-style:'revert';
+
+}
+
+</style>
   <title> Dashboard </title>
   <link  rel="stylesheet" href="{% static 'css/cs.css' %}" />
   <!-- Font Awesome Cdn Link -->
@@ -27,7 +39,7 @@ color:#34AF6D;
         </a></li>
         <li><a href="/data" aria-controls="home" role="tab" data-toggle="tab">
           <i class="fas fa-table"></i>
-          <span>Tables</i></span></a>
+          <span class="nav-item">Tables</span></a>
 
         </li>
         <li><a href="/chart">
@@ -42,156 +54,67 @@ color:#34AF6D;
     </nav>
     <section class="main">
       <div class="main-top">
-        <h1 class="h">Dashboard Monitoring Temperature</h1>
+        <h1 class="h"> Monitoring Temperature</h1>
         <i class="fas fa-user-cog"></i>
       </div>
       <div class="users">
         <div class="card">
-          <img src="{% static 'img/pers1.jpg'%}">
-          <h4>Sam</h4>
-          <p>Ui designer</p>
+          <img src="{% static 'img/icon.jpg'%}">
+          <h4>Temperature </h4>
+          <p></p>
           <div class="per">
             <table>
               <tr>
-                <td><span>85%</span></td>
-                <td><span>87%</span></td>
+                  <td><span>{{maxt}} °C</span></td>
+                <td><span>{{mint}} °C</span></td>
+                  <td><span>{{avg}}  °C</span></td>
+                <td><span>{{last}} °C</span></td>
+                <td><span>{{first}} °C</span></td>
+                <td><span>{{count}}</span></td>
+
+
               </tr>
               <tr>
-                <td>Month</td>
-                <td>Year</td>
+                <td>Maximum</td>
+                <td>Minimum</td>
+                <td>Moyenne</td>
+                <td>Last</td>
+                <td>First</td>
+                <td>Total</td>
               </tr>
+
               </table>
           </div>
-          <button>Profile</button>
+          <button onclick="window.location.href = '/data';">Voir tout</button>
         </div>
-        <div class="card">
-          <img src="{% static 'img/pers2.jpg'%}">
-          <h4>Balbina </h4>
-          <p>Progammer</p>
-          <div class="per">
-            <table>
-              <tr>
-                <td><span>82%</span></td>
-                <td><span>85%</span></td>
-              </tr>
-              <tr>
-                <td>Month</td>
-                <td>Year</td>
-              </tr>
-            </table>
-          </div>
-          <button>Profile</button>
-        </div>
-        <div class="card">
-          <img src="{% static 'img/pers3.jpg'%}">
-          <h4>Badan J</h4>
-          <p>tester</p>
-          <div class="per">
-            <table>
-              <tr>
-                <td><span>94%</span></td>
-                <td><span>92%</span></td>
-              </tr>
-              <tr>
-                <td>Month</td>
-                <td>Year</td>
-              </tr>
-            </table>
-          </div>
-          <button>Profile</button>
-        </div>
-        <div class="card">
-          <img src="{% static 'img/pers1.jpg'%}">
-          <h4>DAVID</h4>
-          <p>Ui designer</p>
-          <div class="per">
-            <table>
-              <tr>
-                <td><span>85%</span></td>
-                <td><span>82%</span></td>
-              </tr>
-              <tr>
-                <td>Month</td>
-                <td>Year</td>
-              </tr>
-            </table>
-</div>
-          <button>Profile</button>
-        </div>
+
+
+
+
+
       </div>
 
       <section class="attendance">
         <div class="attendance-list">
-          <h1>Attendance List</h1>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Depart</th>
-                <th>Date</th>
-                <th>Join Time</th>
-                <th>Logout Time</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>01</td>
-                <td>Sam David</td>
-                <td>Design</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>3:00PM</td>
-                <td><button>View</button></td>
-              </tr>
-              <tr class="active">
-                <td>02</td>
-                <td>Balbina Kherr</td>
-                <td>Coding</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td>4:00PM</td>
-                <td><button>View</button></td>
-              </tr>
-              <tr>
-                <td>03</td>
-                <td>Badan John</td>
-                <td>testing</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>3:00PM</td>
-                <td><button>View</button></td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>Sara David</td>
-                <td>Design</td>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>3:00PM</td>
-                <td><button>View</button></td>
-              </tr>
-              <!-- <tr >
-                <td>05</td>
-                <td>Salina</td>
-                <td>Coding</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td>4:00PM</td>
-                <td><button>View</button></td>
-              </tr>
-              <tr >
-                <td>06</td>
-                <td>Tara Smith</td>
-                <td>Testing</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td>4:00PM</td>
-                <td><button>View</button></td>
-              </tr> -->
-            </tbody>
-          </table>
+          <h1>Dernières 5 valeurs</h1>
+         <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Température</th>
+                    <th>Date:Heure</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in tab %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.temp}}</td>
+                    <td>{{i.dt}}</td>
+                    {%endfor%}
+                </tr>
+                </tbody>
+            </table>
         </div>
       </section>
     </section>

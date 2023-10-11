@@ -5,8 +5,15 @@
   {% load static %}
   <meta charset="UTF-8" />
     <style> .h{
-color:#34AF6D;
-}</style>
+color:#34AF6D;}
+.charts{
+
+    display: block; box-sizing: border-box; height: 500px; width: 1110px;
+
+}
+
+
+</style>
   <title> Charts </title>
   <link  rel="stylesheet" href="{% static 'css/cs.css' %}" />
   <!-- Font Awesome Cdn Link -->
@@ -26,7 +33,7 @@ color:#34AF6D;
         </a></li>
         <li><a href="/data" aria-controls="home" role="tab" data-toggle="tab">
           <i class="fas fa-table"></i>
-          <span >Tables</span>
+          <span class="nav-item">Tables</span>
         </a></li>
         <li><a href="/chart">
           <i class="fas fa-chart-line"></i>
@@ -47,14 +54,14 @@ color:#34AF6D;
     <section class="attendance">
         <div class="charts">
         <div class="chart">
-            <div><canvas id="lineChart"></canvas></div>
+            <div><canvas id="lineChart" width="998" height="499" style="display: block; box-sizing: border-box; height: 555px; width: 1110px;"></canvas></div>
         </div>
 
         </div>
     </section>
 </section>
   </div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1/dist/chart.umd.min.js"></script>
 
 <script >
  const dates = [{% for i in tab %} '{{i.dt}}', {% endfor %}];
@@ -67,7 +74,9 @@ color:#34AF6D;
       datasets: [{
         label: 'temperature',
         data: datas,
-        borderWidth: 1
+        borderWidth: 3,
+        borderColor: '#34AF6D',
+        color:'#34AF6D',
       }]
     },
     options: {
